@@ -3,13 +3,17 @@ variable "project" {
 }
 
 variable "region" {
-  default = "europe-west3"
+  default = "us-centra1"
 }
 
 variable "zone" {
-  default = "europe-west3-a"
+  default = "us-central1-b"
 }
 
 variable "cluster" {
   default = "elixir-cluster"
+}
+
+variable "gcr_region" {
+  default = "us"
 }

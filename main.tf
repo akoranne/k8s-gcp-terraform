@@ -12,7 +12,7 @@ resource "google_container_cluster" "kubernetes" {
   depends_on = ["google_project_service.kubernetes"]
 
   # Must be set if `node_pool` is not set.
-  initial_node_count = 1
+  initial_node_count = ${var.initial_node_count}
 
   # Disable basic auth
   master_auth {
@@ -38,5 +38,5 @@ resource "google_container_cluster" "kubernetes" {
 # Fetches the project name, and provides the appropriate URLs to use for container registry.
 data "google_container_registry_repository" "kubernetes" {
   # The GCR region to use.
-  region = "eu"
+  region = "${var.gcr_region}"
 }
